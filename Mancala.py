@@ -184,13 +184,18 @@ class Player:
         return self._name
 
 
-game = Mancala()
-player1 = game.create_player("Lily")
-player2 = game.create_player("Lucy")
-game.print_board()
-print(game.get_players())
-print(game.play_game(1, 7))
-print(game.play_game(1, 3))
-print(game.play_game(1, 6))
-print(game.play_game(2, 5))
-print(game.play_game(2, 6))
+def main():  # Runs if file is run as a script
+    game = Mancala()
+    player1 = game.create_player("Lily")
+    player2 = game.create_player("Lucy")
+    game.print_board()
+    print(game.get_players())
+    print(game.play_game(1, 7))
+    print(game.play_game(1, 3))
+    print(game.play_game(1, 6))
+    print(game.play_game(2, 5))
+    print(game.play_game(2, 6))
+
+
+if __name__ == "__main__":
+    main()
