@@ -25,7 +25,9 @@ class Mancala:
 
     def get_board(self):
         """FILL IN LATER"""
-        board_list = self._board[0:7] + self.get_player_2_pits()
+        board_list = self.get_player_1_pits()
+        board_list.append(self.get_player_1_store())
+        board_list += self.get_player_2_pits()
         board_list.append(self.get_player_2_store())
         return board_list
 
