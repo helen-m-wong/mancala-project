@@ -120,8 +120,7 @@ class Mancala:
             if index == 13 and num_seeds != 0:
                 return self.rec_play_game(player_num, 0, num_seeds)
             else:
-                seeds = self._board[index]
-                self._board[index] = seeds + 1
+                self._board[index] += 1
                 num_seeds -= 1
                 index += 1
                 return self.rec_play_game(player_num, index, num_seeds)
@@ -131,12 +130,13 @@ class Mancala:
                 if index == 14:
                     print("player 2 take another turn")
                     return self.get_board()
-                if index in range(8, 13) and self._board[index-1] == 1 and self._board[12-(index-1)] >= 1:
-                    extra_seeds = self._board[12 - (index - 1)]
-                    self._board[12 - (index - 1)] = 0
-                    self._board[index - 1] = 0
-                    self._board[13] += (extra_seeds + 1)
-                    return self.get_board()
+                if index in range(8, 13) and self._board[index-1] == 1:
+                    if self._board[12-(index-1)] >= 1:
+                        extra_seeds = self._board[12 - (index - 1)] + 1
+                        self._board[12 - (index - 1)] = 0
+                        self._board[index-1] = 0
+                        self._board[13] += extra_seeds + 1
+                        return self.get_board()
                 else:
                     return self.get_board()
             if index == 14 and num_seeds != 0:
@@ -144,8 +144,7 @@ class Mancala:
             if index == 6:
                 return self.rec_play_game(player_num, 7, num_seeds)
             else:
-                seeds = self._board[index]
-                self._board[index] = seeds + 1
+                self._board[index] += 1
                 num_seeds -= 1
                 index += 1
                 return self.rec_play_game(player_num, index, num_seeds)
