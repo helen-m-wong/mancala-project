@@ -1,7 +1,22 @@
 # Author: Helen Wong
 # GitHub username: helen-m-wong
-# Date: 11/29/22
-# Description:
+# Date: 11/30/22
+# Description: Represents a text-based version of the two-player Mancala board game. Defines Mancala class to create
+# and initialize the board. Defines Player class to create players for the game. Mancala class contains methods
+# that allows user to take turns based on player number.
+#
+# General Rules:
+# On each turn, the player 'picks up' all the seeds in the chosen pit on the player’s side and places one seed in each
+# of the pits to the right until no seeds remain. If the player’s store is reached, a seed is added to the store.
+# Seeds may be added to the other player's pits but not their store.
+#
+# The game ends when one player’s pits are empty. At this point, the other player takes the seeds remaining in
+# their own pits and adds them to their store. Whoever has the most seeds when the game ends is the winner.
+#
+# Special Rules:
+# 1. If the last seed lands in the player’s store, the player takes another turn.
+# 2. If the last seed lands in one of the player’s pits and if that pit was previously empty, the player takes all
+# the seeds in the other player's opposite pit and the last seed played their own and adds them into their own store.
 
 class InvalidPitIndex(Exception):
     """User-defined exception for invalid pit index number (>6 or <=0)"""
