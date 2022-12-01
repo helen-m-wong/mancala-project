@@ -25,11 +25,7 @@ class Mancala:
 
     def get_board(self):
         """FILL IN LATER"""
-        board_list = self.get_player_1_pits()
-        board_list.append(self.get_player_1_store())
-        board_list += self.get_player_2_pits()
-        board_list.append(self.get_player_2_store())
-        return board_list
+        return self._board
 
     def get_player_1_pits(self):
         """FILL IN LATER"""
@@ -37,8 +33,7 @@ class Mancala:
 
     def get_player_2_pits(self):
         """FILL IN LATER"""
-        pits = self._board[7:13]
-        return pits[::-1]
+        return self._board[7:13]
 
     def get_player_1_store(self):
         """FILL IN LATER"""
@@ -110,10 +105,10 @@ class Mancala:
                     print("player 1 take another turn")
                     return self.get_board()
                 if index in range(1, 7) and self._board[index-1] == 1 and self._board[12-(index-1)] >= 1:
-                    extra_seeds = self._board[12-(index-1)]
+                    extra_seeds = self._board[12-(index-1)] + 1
                     self._board[12-(index-1)] = 0
                     self._board[index - 1] = 0
-                    self._board[6] += (extra_seeds + 1)
+                    self._board[6] += extra_seeds
                     return self.get_board()
                 else:
                     return self.get_board()
@@ -135,7 +130,7 @@ class Mancala:
                         extra_seeds = self._board[12 - (index - 1)] + 1
                         self._board[12 - (index - 1)] = 0
                         self._board[index-1] = 0
-                        self._board[13] += extra_seeds + 1
+                        self._board[13] += extra_seeds
                         return self.get_board()
                 else:
                     return self.get_board()
