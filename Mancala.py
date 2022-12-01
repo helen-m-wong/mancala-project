@@ -104,10 +104,10 @@ class Mancala:
                 if index == 7:
                     print("player 1 take another turn")
                     return self.get_board()
-                if index in range(1, 7) and self._board[index-1] == 1 and self._board[12-(index-1)] >= 1:
+                if index in range(1, 7) and self._board[index-1] == 1:
                     extra_seeds = self._board[12-(index-1)] + 1
                     self._board[12-(index-1)] = 0
-                    self._board[index - 1] = 0
+                    self._board[index-1] = 0
                     self._board[6] += extra_seeds
                     return self.get_board()
                 else:
@@ -125,9 +125,9 @@ class Mancala:
                 if index == 14:
                     print("player 2 take another turn")
                     return self.get_board()
-                if index in range(8, 13) and self._board[index-1] == 1:
-                    extra_seeds = self._board[12 - (index - 1)] + 1
-                    self._board[12 - (index - 1)] = 0
+                if index in range(8, 14) and self._board[index-1] == 1:
+                    extra_seeds = self._board[12 - (index-1)] + 1
+                    self._board[12 - (index-1)] = 0
                     self._board[index-1] = 0
                     self._board[13] += extra_seeds
                     return self.get_board()
@@ -186,9 +186,9 @@ def main():  # Runs if file is run as a script
     game.print_board()
     print(game.get_players())
     print(game.play_game(1, 7))
-    print(game.play_game(1, 3))
-    print(game.play_game(1, 6))
-    print(game.play_game(2, 2))
+    print(game.play_game(1, 5))
+    print(game.play_game(1, 1))
+    print(game.play_game(2, 6))
     print(game.play_game(2, 1))
 
 
