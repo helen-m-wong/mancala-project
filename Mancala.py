@@ -126,12 +126,11 @@ class Mancala:
                     print("player 2 take another turn")
                     return self.get_board()
                 if index in range(8, 13) and self._board[index-1] == 1:
-                    if self._board[12-(index-1)] >= 1:
-                        extra_seeds = self._board[12 - (index - 1)] + 1
-                        self._board[12 - (index - 1)] = 0
-                        self._board[index-1] = 0
-                        self._board[13] += extra_seeds
-                        return self.get_board()
+                    extra_seeds = self._board[12 - (index - 1)] + 1
+                    self._board[12 - (index - 1)] = 0
+                    self._board[index-1] = 0
+                    self._board[13] += extra_seeds
+                    return self.get_board()
                 else:
                     return self.get_board()
             if index == 14 and num_seeds != 0:
