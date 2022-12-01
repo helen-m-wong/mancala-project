@@ -90,7 +90,7 @@ class Mancala:
                 self._board[index] = 0
             self.set_state("ended")
             return "Game is ended"
-        if self.player_2_pits_sum() == 0:
+        elif self.player_2_pits_sum() == 0:
             self._board[6] += self.player_1_pits_sum()
             for index in range(0, 6):
                 self._board[index] = 0
