@@ -92,9 +92,9 @@ class Mancala:
             self._board[pit_index-1] = 0
             return self.rec_play_game(player_num, pit_index, num_seeds)
         elif player_num == 2:
-            num_seeds = self._board[13-pit_index]
-            self._board[13-pit_index] = 0
-            return self.rec_play_game(player_num, 14-pit_index, num_seeds)
+            num_seeds = self._board[pit_index+6]
+            self._board[pit_index+6] = 0
+            return self.rec_play_game(player_num, pit_index+7, num_seeds)
 
     def rec_play_game(self, player_num, index, num_seeds):
         """FILL IN LATER"""
@@ -188,8 +188,8 @@ def main():  # Runs if file is run as a script
     print(game.play_game(1, 7))
     print(game.play_game(1, 3))
     print(game.play_game(1, 6))
-    print(game.play_game(2, 5))
-    print(game.play_game(2, 6))
+    print(game.play_game(2, 2))
+    print(game.play_game(2, 1))
 
 
 if __name__ == "__main__":
