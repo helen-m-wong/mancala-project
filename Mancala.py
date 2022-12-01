@@ -175,14 +175,24 @@ class Mancala:
         return
 
     def return_winner(self):
-        """Takes no parameters.
+        """
 If game is ended, returns message declaring which player is the winner and their name.
 
 If game is a tie, return message stating the game is a tie.
 
 If game is not ended yet, return message stating game has not ended yet."""
-        return
 
+        if self.get_state() == "ended":
+            player_1_seeds = self.get_player_1_store()
+            player_2_seeds = self.get_player_2_store()
+            if player_1_seeds == player_2_seeds:
+                return "It's a tie"
+            elif player_1_seeds > player_2_seeds:
+                return f"Winner is player 1: {self._players[0]}"
+            elif player_2_seeds > player_1_seeds:
+                return f"Winner is player 2: {self._players[1]}"
+        else:
+            return "Game has not ended"
 
 class Player:
     """Represents player in mancala game"""
@@ -209,6 +219,7 @@ def main():  # Runs if file is run as a script
     print(game.play_game(1, 4))
     print(game.play_game(1, 5))
     print(game.play_game(1, 6))
+    print(game.return_winner())
 
 
 if __name__ == "__main__":
