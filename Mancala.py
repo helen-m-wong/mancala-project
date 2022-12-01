@@ -84,7 +84,12 @@ class Mancala:
         except InvalidPitIndex:
             return "Invalid number for pit index"
 
-        if self.player_1_pits_sum() == 0 or self.player_2_pits_sum() == 0:
+        if self.player_1_pits_sum() == 0:
+            self._board[13] += self.player_2_pits_sum()
+            self.set_state("ended")
+            return "Game is ended"
+        if self.player_2_pits_sum() == 0:
+            self._board[6] += self.player_1_pits_sum()
             self.set_state("ended")
             return "Game is ended"
         elif player_num == 1:
@@ -190,6 +195,7 @@ def main():  # Runs if file is run as a script
     print(game.play_game(1, 1))
     print(game.play_game(2, 6))
     print(game.play_game(2, 1))
+    print(game.play_game(2, 5))
 
 
 if __name__ == "__main__":
