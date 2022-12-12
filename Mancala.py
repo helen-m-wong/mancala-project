@@ -3,7 +3,8 @@
 # Date: 11/30/22
 # Description: Represents a text-based version of the two-player Mancala board game. Defines Mancala class to create
 # and initialize the board. Defines Player class to create players for the game. Mancala class contains methods
-# that allows user to take turns based on player number.
+# that allows user to take turns based on player number. Players are not enforced to take turns in order for
+# testing purposes.
 #
 # General Rules:
 # On each turn, the player 'picks up' all the seeds in the chosen pit on the player’s side and places one seed in each
@@ -24,8 +25,7 @@ class InvalidPitIndex(Exception):
 
 
 class Mancala:
-    """Represents mancala game, played by 2 players. Players are not enforced to take turns in order for
-    testing purposes."""
+    """Represents mancala game, played by 2 players."""
 
     def __init__(self):
         """Constructor for Mancala class.
